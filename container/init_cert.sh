@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 
 LETSENCRYPT_DOMAIN=${LETSENCRYPT_DOMAIN:-}
 LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:-"example@local"}
