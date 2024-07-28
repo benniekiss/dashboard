@@ -2,6 +2,7 @@ FROM node:22-alpine3.20 as npm-build
 
 COPY . /tmp
 WORKDIR /tmp
+RUN npm install && npm install sharp
 RUN npm run build .
 
 FROM alpine:3.20
@@ -22,7 +23,7 @@ RUN chmod +x /usr/local/init_cert.sh && rm /etc/crontabs/root
 RUN chmod +x /usr/local/init_react_envs.sh
 RUN chmod +x /usr/local/start.sh
 
-COPY --from=npm-build out/ /usr/share/nginx/html/
+COPY --from=npm-build /tmp/out/ /usr/share/nginx/html/
 
 WORKDIR /usr/share/nginx/html
 STOPSIGNAL SIGINT
