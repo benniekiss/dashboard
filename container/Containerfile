@@ -19,7 +19,7 @@ COPY container/supervisord.conf /etc/supervisord.conf
 COPY container/init_cert.sh /usr/local/bin/init_cert.sh
 COPY container/init_react_envs.sh /usr/local/bin/init_react_envs.sh
 COPY container/start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/init_cert.sh /usr/local/init_react_envs.sh /usr/local/start.sh
+RUN chmod +x /usr/local/bin/init_cert.sh /usr/local/bin/init_react_envs.sh /usr/local/bin/start.sh
 
 COPY --from=npm-build /tmp/out/ /usr/share/nginx/html/
 
