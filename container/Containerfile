@@ -1,5 +1,7 @@
 FROM node:22-alpine3.20 as npm-build
 
+COPY . /tmp
+WORKDIR /tmp
 RUN npm run build .
 
 FROM alpine:3.20
