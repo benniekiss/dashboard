@@ -14,6 +14,8 @@ RUN apk add --no-cache bash curl git \
     nginx certbot-nginx ca-certificates \
     supervisor
 
+RUN mkdir -p /run/nginx
+
 # copy configuration files
 COPY docker/default.conf /etc/nginx/http.d/default.conf
 COPY docker/nginx.conf /etc/nginx/nginx.conf
