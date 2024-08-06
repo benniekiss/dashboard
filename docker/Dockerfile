@@ -24,7 +24,7 @@ COPY --chmod=755 docker/init_react_envs.sh /usr/local/init_react_envs.sh
 # configure supervisor
 COPY docker/supervisord.conf /etc/supervisord.conf
 # copy build files
-COPY out/ /usr/share/nginx/html/
+COPY --from=npm-build out/ /usr/share/nginx/html/
 
 WORKDIR /usr/share/nginx/html
 
